@@ -1,6 +1,0 @@
-/var/log/departure.log {
-  daily
-  rotate 7
-  compress
-  create 0644 root root
-}

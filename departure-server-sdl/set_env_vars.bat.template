@@ -1,0 +1,4 @@
+@echo off
+
+rem directory containing SDL2.dll
+set PYSDL2_DLL_PATH=xxx
