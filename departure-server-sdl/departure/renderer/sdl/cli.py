@@ -15,7 +15,7 @@ import departure.board.departure_pb2_grpc as departure_pb2_grpc
 
 from . import renderer
 
-COMMAND='sdl'
+COMMAND = "sdl"
 
 logger = logging.getLogger(__name__)
 
@@ -30,9 +30,11 @@ class BoardManagerServicer(departure_pb2_grpc.BoardManagerServicer):
     def BoardSectionsUpdate(self, request, context):
         return self.target_board_updater.update(request)
 
-@click.command(name='sdl')
-@click.option('--small', is_flag=True)
+
+@click.command(name="sdl")
+@click.option("--small", is_flag=True, help="Render a small departure board.")
 def run(small=False):
+    """SDL2 back end."""
     target_board = board.Board(192, 32)
 
     # initialise renderer

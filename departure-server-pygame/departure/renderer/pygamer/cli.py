@@ -11,7 +11,7 @@ import click
 import grpc
 
 # suppress pygame welcome message
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 
 # pylint: disable=wrong-import-position
 import pygame
@@ -23,7 +23,7 @@ import departure.board.departure_pb2_grpc as departure_pb2_grpc
 
 from . import renderer
 
-COMMAND='pygame'
+COMMAND = "pygame"
 
 logger = logging.getLogger(__name__)
 
@@ -38,8 +38,10 @@ class BoardManagerServicer(departure_pb2_grpc.BoardManagerServicer):
     def BoardSectionsUpdate(self, request, context):
         return self.target_board_updater.update(request)
 
-@click.command(name='pygame')
+
+@click.command(name="pygame")
 def run():
+    """Pygame back end."""
     target_board = board.Board(192, 32)
 
     # initialise renderer

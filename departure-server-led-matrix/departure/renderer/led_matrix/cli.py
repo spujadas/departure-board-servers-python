@@ -13,7 +13,7 @@ import departure.board.departure_pb2_grpc as departure_pb2_grpc
 
 from . import renderer
 
-COMMAND='led'
+COMMAND = "led"
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +28,10 @@ class BoardManagerServicer(departure_pb2_grpc.BoardManagerServicer):
     def BoardSectionsUpdate(self, request, context):
         return self.target_board_updater.update(request)
 
-@click.command(name='led')
+
+@click.command(name="led")
 def run():
+    """LED matrix back end."""
     target_board = board.Board(192, 32)
 
     target_renderer = renderer.Renderer()
